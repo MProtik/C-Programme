@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define Size (struct Node *) malloc(sizeof(struct Node))
+
+struct Node{
+    int data;
+    struct Node *next;
+}*head, *end, *extranode, *fourth, *fifth;
+
+void traversal(struct Node *ptr){
+    while(ptr!= NULL){
+    printf("Element: %d\n", ptr->data);
+    ptr = ptr->next;
+    }
+}
+
+struct node *newnode(struct Node *p, int data, struct Node *nextp){
+    //struct node *p;
+    //p = Size;
+    p->data = data;
+    p->next = nextp;
+    //return p;
+}
+
+int main(){
+    struct Node * second;
+    struct Node * third;
+
+    //Allocation memory for nodes in the linked list in heap
+    head = (struct Node *) malloc(sizeof(struct Node));
+    second = (struct Node *) malloc(sizeof(struct Node));
+    third = (struct Node *) malloc(sizeof(struct Node));
+    extranode = Size;
+    fourth = Size;
+    fifth = Size;
+    head->data = 7;
+    head->next = second;
+    second->data = 8;
+    second->next = third;
+
+    third->data = 9;
+    third->next = fourth;
+
+    newnode(fourth, 10, fifth);
+    newnode(fifth, 11, extranode);
+
+    newnode(extranode, 12, NULL);
+
+
+
+
+
+    traversal(head);
+
+
+return 0;
+}
+
